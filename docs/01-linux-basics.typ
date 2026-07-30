@@ -223,3 +223,300 @@ then securely erase the data using the `shred` command.
   ```bash
   ls
   ```
+
+= `mkdir`
+Creates one or more new directories (folders). It is commonly used to organize files and projects.
+
+== Examples
+```bash
+# Create a new directory
+mkdir projects
+
+# Create multiple directories
+mkdir docs scripts logs
+
+# Create nested directories
+mkdir -p ./directory_1/directory_2/directory_3
+
+# Create a directory in another location
+mkdir ~/Downloads/temp
+```
+
+= `cp`
+Copies files and directories from one location to another.
+
+== Examples
+```bash
+# Copy a file
+cp report.txt backup.txt
+
+# Copy a file to another directory
+cp report.txt ~/Documents/
+
+# Copy an entire directory
+cp -rv project backup_project
+
+# Copy multiple files
+cp file1.txt file2.txt ~/Documents/
+```
+
+= `rm`
+Removes (deletes) files and directories. Use with caution, as deleted files are generally not moved
+to a recycle bin.
+
+== Examples
+```bash
+# Delete a file
+rm notes.txt
+
+# Delete multiple files
+rm file1.txt file2.txt
+
+# Delete an empty directory tree
+rm -r old_project
+
+# Forcefully delete a directory and everything inside without asking
+rm -rf old_project
+
+# Ask for confirmation before deleting
+rm -i important.txt
+```
+
+= `rmdir`
+Removes empty directories. It only works if the directory contains no files or subdirectories.
+
+== Examples
+```bash
+# Remove an empty directory
+rmdir temp
+
+# Remove multiple empty directories
+rmdir logs cache output
+
+# Remove nested empty directories
+rmdir -p projects/fpga/tutorials
+
+# Remove an empty directory in another location
+rmdir ~/Downloads/temp
+```
+
+= `ln`
+Creates links between files. A hard link points directly to the file data, while a symbolic (soft)
+link acts like a shortcut.
+
+== Examples
+```bash
+# Create a symbolic link
+ln -s report.txt latest_report.txt
+
+# Create a symbolic link to a directory
+ln -s ~/Documents docs
+
+# Create a hard link
+ln report.txt report_backup.txt
+```
+
+= `clear`
+Clears the terminal screen, making it easier to work without previous output cluttering the display.
+
+== Examples
+```bash
+# Clear the terminal
+clear
+
+# Run several commands, then clear the screen
+ls
+pwd
+clear
+
+# Clear after editing a file
+nano notes.txt
+clear
+```
+
+= `whoami`
+Displays the username of the currently logged-in user.
+
+== Examples
+```bash
+# Show the current username
+whoami
+
+# Check your user before running commands
+whoami
+pwd
+
+# Use in a shell script
+echo "Current user: $(whoami)"
+```
+
+= `sudo`
+Runs a command with administrator (root) privileges. Only authorized users can use `sudo`.
+
+== Examples
+```bash
+# Update package information
+sudo dnf update
+
+# Install a package
+sudo dnf install git
+
+# Edit a system configuration file
+sudo nano /etc/hosts
+
+# Restart the system
+sudo reboot
+```
+
+= `exit`
+Ends the current shell session or exits a terminal program.
+
+== Examples
+```bash
+# Exit the current terminal session
+exit
+
+# Exit after using su
+su alice
+exit
+
+# Exit a remote SSH session
+exit
+
+# Exit a Bash shell started manually
+bash
+exit
+```
+
+= `passwd`
+Changes the password of a user account. A normal user can change their own password, while
+administrators can change passwords for other users.
+
+== Examples
+```bash
+# Change your own password
+passwd
+
+# Change another user's password
+sudo passwd alice
+
+# Force a user to change their password at next login
+sudo passwd --expire alice
+
+# Lock a user account
+sudo passwd -l alice
+```
+
+= `apt`
+`apt` (Advanced Package Tool) is a package management command used on Debian-based Linux
+distributions such as Ubuntu. It allows users to install, update, remove, and manage software
+packages from software repositories.
+
+== Examples
+```bash
+# Update the list of available packages
+sudo apt update
+
+# Upgrade installed packages to the latest versions
+sudo apt upgrade
+
+# Install a software package
+sudo apt install git
+
+# Remove an installed package
+sudo apt remove git
+```
+
+= `dnf`
+`dnf` (Dandified YUM) is a package management command used in Fedora, Red Hat Enterprise Linux
+(RHEL), CentOS Stream, and other Red Hat-based Linux distributions. It is used to install, update,
+remove, and manage software packages on the system.
+
+`dnf` is the modern replacement for `yum` and provides improved dependency handling and performance.
+
+== Examples
+```bash
+# Update all installed packages
+sudo dnf update
+
+# Install a software package
+sudo dnf install git
+
+# Remove an installed package
+sudo dnf remove git
+
+# Search for available packages
+dnf search python
+```
+
+== Additional Examples
+```bash
+# Display information about an installed package
+dnf info git
+
+# List installed packages
+dnf list installed
+
+# Clean cached package data
+sudo dnf clean all
+
+# Show available package updates
+dnf check-update
+```
+
+= `finger`
+Displays information about users on a Linux system. It can show details such as username, login
+time, home directory, and other account information.
+*Note:* The `finger` command is not installed by default on many modern Linux distributions and may
+need to be installed separately.
+
+== Examples
+
+```bash
+# Display information about the current user
+finger
+```
+
+```bash
+# Display information about a specific user
+finger username
+```
+
+```bash
+# Show logged-in users and their details
+finger @localhost
+```
+
+```bash
+# Install finger on Ubuntu
+sudo apt install finger
+```
+
+// = `man`
+//
+// `man` (manual) displays the documentation pages for Linux commands. It is one of the most useful commands for learning how commands work, including available options and examples.
+//
+// == Examples
+//
+// ```bash
+// # View the manual page for a command
+// man ls
+// ```
+//
+// ```bash
+// # View documentation for the cp command
+// man cp
+// ```
+//
+// ```bash
+// # Search manuals for a keyword
+// man -k network
+// ```
+//
+// ```bash
+// # Open the manual for the man command itself
+// man man
+// ```
+//
+//
+//
