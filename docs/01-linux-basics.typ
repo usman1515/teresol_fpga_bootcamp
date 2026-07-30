@@ -6,6 +6,13 @@
 // number all headings
 #set heading(numbering: "1.1.")
 
+// show all links as underlined and blue
+#show link: underline
+#show link: set text(blue)
+
+// number all pages
+#set page(numbering: "1")
+
 // TODO: update font to something different
 // #set text(font: "Libertinus Serif")
 
@@ -659,3 +666,429 @@ cmp -l file1.txt file2.txt
 cmp output_old.txt output_new.txt
 ```
 
+= `diff`
+Compares two files line by line and shows the differences between them. It is commonly used when
+comparing source code, configuration files, or different versions of documents.
+
+== Examples
+```bash
+# Compare two files
+diff file1.txt file2.txt
+
+# Compare two configuration files
+diff config_old.conf config_new.conf
+
+# Show differences in a readable format
+diff -u old_version.c new_version.c
+
+# Compare two directories
+diff -r folder1 folder2
+```
+
+= `sort`
+Arranges lines of text in alphabetical or numerical order. It is often used with other commands to
+organize command output.
+
+== Examples
+```bash
+# Sort the contents of a file
+sort names.txt
+
+# Sort numbers in ascending order
+sort -n numbers.txt
+
+# Sort and save output to a new file
+sort names.txt > sorted_names.txt
+
+# Sort command output
+ls | sort
+```
+
+= `find`
+Searches for files and directories based on name, type, size, permissions, and other properties.
+
+== Examples
+```bash
+# Find a file by name
+find . -name "notes.txt"
+
+# Find all C files
+find . -name "*.c"
+
+# Find directories only
+find /home -type d
+
+# Find large files
+find . -size +100M
+```
+
+= `chmod`
+Changes the permissions of files and directories. It controls who can read, write, or execute a
+file. \
+Linux permissions are represented as: \
+```text
+r = read
+w = write
+x = execute
+```
+
+== Examples
+```bash
+# Add execute permission to a script
+chmod +x script.sh
+
+# Give read/write permission to the owner
+chmod u+rw file.txt
+
+# Set permissions using numeric mode
+chmod 755 script.sh
+
+# Remove write permission
+chmod -w file.txt
+```
+
+*NOTE:* Follow this
+#link("https://www.geeksforgeeks.org/linux-unix/set-file-permissions-linux/")[chmod-tutorial] as it
+gives an extensive explanation on how file permissions work.
+
+= `ifconfig`
+Displays and configures network interfaces. It is an older networking command and has largely been
+replaced by `ip`.
+
+== Examples
+```bash
+# Display network interfaces
+ifconfig
+
+# Show a specific interface
+ifconfig eth0
+```
+
+= `grep`
+Searches for text patterns inside files or command output. It is one of the most commonly used Linux
+tools for filtering information.
+
+== Examples
+```bash
+# Search for a word in a file
+grep "error" logfile.txt
+
+# Search recursively in a directory
+grep -r "TODO" .
+
+# Ignore uppercase/lowercase differences
+grep -i "warning" logfile.txt
+
+# Search running processes
+ps aux | grep python
+```
+
+= `awk`
+`awk` is a text-processing tool used to extract, filter, and manipulate structured text data. It is
+commonly used for processing logs and command output.
+
+== Examples
+```bash
+# Print a specific column
+awk '{print $1}' file.txt
+
+# Print the second column of command output
+ls -l | awk '{print $9}'
+
+# Search and print matching lines
+awk '/error/ {print}' logfile.txt
+
+# Print multiple columns
+awk '{print $1, $3}' data.txt
+```
+
+= `ping`
+Tests network connectivity between your machine and another host by sending ICMP packets and
+measuring response time.
+
+== Examples
+```bash
+# Test connection to a server
+ping google.com
+
+# Ping an IP address
+ping 8.8.8.8
+
+# Send only 4 packets
+ping -c 4 google.com
+
+# Test connection to another machine
+ping 192.168.1.50
+```
+
+= `netstat`
+Displays network connections, routing tables, and network statistics. It is commonly used for
+troubleshooting network issues.
+
+*NOTE:* On many modern systems, `ss` has replaced `netstat`.
+
+== Examples
+```bash
+# Display active connections
+netstat
+
+# Show listening ports
+netstat -tuln
+
+# Display routing table
+netstat -r
+
+# Show network statistics
+netstat -s
+```
+
+= `uname`
+Displays information about the operating system and kernel. It is commonly used to identify the
+Linux system architecture and version.
+
+== Examples
+```bash
+# Display kernel information
+uname
+
+# Display all system information
+uname -a
+
+# Display kernel version
+uname -r
+
+# Display machine architecture
+uname -m
+```
+
+= `fastfetch`
+Displays a summary of system information, including hardware, operating system, memory, CPU, and
+kernel details.
+
+== Examples
+```bash
+# Display system information
+fastfetch
+
+# Hide the logo
+fastfetch --logo none
+
+# List available modules
+fastfetch --list-modules
+```
+
+= `cal`
+Displays a calendar for the current month, a specific month, or an entire year.
+
+== Examples
+```bash
+# Display the current month
+cal
+
+# Display a specific year
+cal 2026
+
+# Display December 2026
+cal 12 2026
+
+# Display the previous, current, and next month
+cal -3
+```
+
+= `free`
+Displays memory usage, including RAM and swap space, in various formats.
+
+== Examples
+```bash
+# Display memory usage
+free
+
+# Display in human-readable format
+free -h
+
+# Display in megabytes
+free -m
+
+# Refresh every 2 seconds
+free -s 2
+```
+
+= `df`
+Displays disk space usage for mounted file systems and storage devices.
+
+== Examples
+```bash
+# Display disk usage
+df
+
+# Display in human-readable format
+df -h
+
+# Display filesystem types
+df -T
+
+# Display usage for the root filesystem
+df -h /
+```
+
+= `ps`
+Displays information about currently running processes on the system.
+
+== Examples
+```bash
+# Display your current processes
+ps
+
+# Display all running processes
+ps aux
+
+# Display processes in full format
+ps -ef
+
+# Display processes for a specific user
+ps -u username
+```
+
+= `top`
+Displays a live view of running processes and system resource usage.
+
+== Examples
+```bash
+# Start top
+top
+
+# Show processes for a user
+top -u username
+
+# Sort by CPU usage
+top -o %CPU
+
+# Refresh every 2 seconds
+top -d 2
+```
+
+= `htop`
+Displays an interactive process viewer with easier navigation and management features.
+
+== Examples
+```bash
+# Start htop
+htop
+
+# Show processes for a user
+htop -u username
+
+# Set refresh delay
+htop -d 20
+
+# Sort by CPU usage
+htop --sort-key PERCENT_CPU
+```
+
+= `kill`
+Sends signals to a process, usually to stop or terminate it.
+
+== Examples
+```bash
+# Terminate a process
+kill 1234
+
+# Force terminate a process
+kill -9 1234
+
+# Send the default terminate signal
+kill -15 1234
+
+# Pause a process
+kill -SIGSTOP 1234
+```
+
+= `pkill`
+Sends signals to processes by matching their names instead of PIDs.
+
+== Examples
+```bash
+# Terminate Firefox
+pkill firefox
+
+# Force terminate all Python processes
+pkill -9 python
+
+# Terminate processes owned by a user
+pkill -u username
+
+# Match the full command line
+pkill -f "python script.py"
+```
+
+= `systemctl`
+Manages system services, daemons, and the system state on systemd-based Linux distributions.
+
+== Examples
+```bash
+# Check service status
+systemctl status ssh
+
+# Start a service
+systemctl start nginx
+
+# Restart a service
+systemctl restart apache2
+
+# Enable a service at boot
+systemctl enable docker
+```
+
+= `history`
+Displays previously executed shell commands from your command history.
+
+== Examples
+```bash
+# Display command history
+history
+
+# Show the last 20 commands
+history 20
+
+# Search for Git commands
+history | grep git
+
+# Re-run command 125
+!125
+```
+
+= `reboot`
+Restarts the computer safely by shutting down all running services first.
+
+== Examples
+```bash
+# Restart the system
+reboot
+
+# Restart as administrator
+sudo reboot
+
+# Restart using systemctl
+systemctl reboot
+
+# Restart immediately using shutdown
+shutdown -r now
+```
+
+= `shutdown`
+Safely powers off or restarts the system immediately or at a scheduled time.
+
+== Examples
+```bash
+# Shut down immediately
+shutdown now
+
+# Power off immediately
+shutdown -h now
+
+# Restart immediately
+shutdown -r now
+
+# Shut down in 10 minutes
+shutdown +10
+```
