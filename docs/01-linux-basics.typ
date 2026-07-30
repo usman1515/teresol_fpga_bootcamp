@@ -430,8 +430,7 @@ sudo apt remove git
 = `dnf`
 `dnf` (Dandified YUM) is a package management command used in Fedora, Red Hat Enterprise Linux
 (RHEL), CentOS Stream, and other Red Hat-based Linux distributions. It is used to install, update,
-remove, and manage software packages on the system.
-
+remove, and manage software packages on the system. \
 `dnf` is the modern replacement for `yum` and provides improved dependency handling and performance.
 
 == Examples
@@ -447,10 +446,7 @@ sudo dnf remove git
 
 # Search for available packages
 dnf search python
-```
 
-== Additional Examples
-```bash
 # Display information about an installed package
 dnf info git
 
@@ -466,7 +462,7 @@ dnf check-update
 
 = `finger`
 Displays information about users on a Linux system. It can show details such as username, login
-time, home directory, and other account information.
+time, home directory, and other account information. \
 *Note:* The `finger` command is not installed by default on many modern Linux distributions and may
 need to be installed separately.
 
@@ -475,48 +471,191 @@ need to be installed separately.
 ```bash
 # Display information about the current user
 finger
-```
 
-```bash
 # Display information about a specific user
 finger username
-```
 
-```bash
 # Show logged-in users and their details
 finger @localhost
-```
 
-```bash
 # Install finger on Ubuntu
 sudo apt install finger
 ```
 
-// = `man`
-//
-// `man` (manual) displays the documentation pages for Linux commands. It is one of the most useful commands for learning how commands work, including available options and examples.
-//
-// == Examples
-//
-// ```bash
-// # View the manual page for a command
-// man ls
-// ```
-//
-// ```bash
-// # View documentation for the cp command
-// man cp
-// ```
-//
-// ```bash
-// # Search manuals for a keyword
-// man -k network
-// ```
-//
-// ```bash
-// # Open the manual for the man command itself
-// man man
-// ```
-//
-//
-//
+= `man`
+`man` (manual) displays the documentation pages for Linux commands. It is one of the most useful
+commands for learning how commands work, including available options and examples.
+
+== Examples
+```bash
+# View the manual page for a command
+man ls
+
+# View documentation for the cp command
+man cp
+
+# Search manuals for a keyword
+man -k network
+
+# Open the manual for the man command itself
+man man
+```
+
+= `whatis`
+Provides a short description of a Linux command. It searches the manual page database and displays a
+brief explanation of what a command does. \
+It is useful when you remember a command name but need a quick reminder of its purpose.
+
+== Examples
+```bash
+# Get a short description of a command
+whatis ls
+
+# Find information about the cp command
+whatis cp
+
+# Check multiple commands
+whatis grep find mkdir
+
+# Get a description of the man command
+whatis man
+```
+
+= `curl`
+Client URL (`curl`) is a command-line tool used to transfer data between a computer and a server. It
+is commonly used for downloading files, testing APIs, and communicating with web services.
+
+== Examples
+```bash
+# Download a file from a URL
+curl -O https://example.com/file.html
+
+# Display the contents of a webpage
+curl https://example.com
+
+# Check the response headers from a website
+curl -I https://example.com
+curl -I https://duckduckgo.com/
+```
+
+= `zip`
+Creates compressed archive files. It is used to reduce file size and package multiple files together
+for easier storage or sharing.
+
+== Examples
+```bash
+# Compress a single file
+zip archive.zip file.txt
+
+# Compress multiple files
+zip project.zip file1.txt file2.txt
+
+# Compress an entire directory
+zip -r project.zip project/
+
+# View files inside a zip archive
+zipinfo project.zip
+```
+
+= `unzip`
+Extracts files from a ZIP archive. It is used to restore compressed files back to their original
+form.
+
+== Examples
+```bash
+# Extract a zip file
+unzip archive.zip
+
+# Extract into a specific directory
+unzip archive.zip -d ~/Documents/
+
+# List files inside a zip archive
+unzip -l archive.zip
+
+# Extract and overwrite existing files
+unzip -o archive.zip
+```
+
+= `less`
+Displays the contents of a file one page at a time. It is useful for reading large files because it
+does not load the entire file into the terminal at once.
+
+== Examples
+```bash
+# Open a text file
+less notes.txt
+
+# View a log file
+less system.log
+
+# View command output page by page
+dmesg | less
+
+# Search inside a file
+less /var/log/syslog
+```
+- Useful navigation keys inside `less`:
+```bash
+Space  - Move forward one page
+b      - Move backward one page
+/word  - Search for text
+q      - Quit
+```
+
+= `head`
+Displays the first few lines of a file. It is commonly used to quickly inspect the beginning of
+files or logs.
+
+== Examples
+```bash
+# Display the first 10 lines of a file
+head file.txt
+
+# Display the first 20 lines
+head -n 20 file.txt
+
+# View the beginning of a log file
+head /var/log/syslog
+
+# Display the first lines of command output
+ls -l | head
+```
+
+= `tail`
+Displays the last few lines of a file. It is commonly used for checking the latest entries in log
+files.
+
+== Examples
+```bash
+# Display the last 10 lines of a file
+tail file.txt
+
+# Display the last 20 lines
+tail -n 20 file.txt
+
+# Monitor a log file in real time
+tail -f /var/log/syslog
+
+# View the latest command output
+dmesg | tail
+```
+
+= `cmp`
+Compares two files byte by byte and reports whether they are identical or where the first difference
+occurs. It is useful for checking whether two files are exactly the same.
+
+== Examples
+```bash
+# Compare two files
+cmp file1.txt file2.txt
+
+# Compare two binary files
+cmp program1.bin program2.bin
+
+# Compare files and show differences
+cmp -l file1.txt file2.txt
+
+# Compare generated output files
+cmp output_old.txt output_new.txt
+```
+
