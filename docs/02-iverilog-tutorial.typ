@@ -122,8 +122,10 @@ For this lab, we need a Linux system with Fedora installed. The following softwa
 )
 
 == Installing the OSS CAD Suite
-
-For FPGA development, we will use the *OSS CAD Suite*, a collection of free and open-source tools for digital design, simulation, synthesis, and FPGA development. The suite brings together several commonly used FPGA and hardware-design tools into a single installation, making it easier to set up a consistent development environment across the team.
+For FPGA development, we will use the *OSS CAD Suite*, a collection of free and open-source tools
+for digital design, simulation, synthesis, and FPGA development. The suite brings together several
+commonly used FPGA and hardware-design tools into a single installation, making it easier to set up
+a consistent development environment across the team.
 
 For this lab, we will use the following tools from the OSS CAD Suite:
 
@@ -131,7 +133,8 @@ For this lab, we will use the following tools from the OSS CAD Suite:
 - `vvp` — Simulation runtime used by Icarus Verilog
 - `gtkwave` — Graphical waveform viewer
 
-Instead of installing each tool individually through Fedora's package manager, we will install the OSS CAD Suite and use the tools provided by the suite throughout this onboarding series.
+Instead of installing each tool individually through Fedora's package manager, we will install the
+OSS CAD Suite and use the tools provided by the suite throughout this onboarding series.
 
 == Installing other tools
 It is also useful to make sure that `make` is installed:
@@ -163,7 +166,8 @@ mkdir -p lab-02-verilog-sim-iverilog
 cd lab-02-verilog-sim-iverilog
 ```
 
-We will organize the project into separate directories for the design source code, testbench, and generated simulation files.
+We will organize the project into separate directories for the design source code, testbench, and
+generated simulation files.
 
 Create the following directories:
 ```bash
