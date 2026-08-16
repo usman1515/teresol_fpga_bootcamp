@@ -3,6 +3,11 @@
   margin: 1in,
 )
 
+#set text(
+  font: "Noto Sans",
+  size: 11pt,
+)
+
 // number all headings
 #set heading(numbering: "1.1.")
 
@@ -13,51 +18,56 @@
 // number all pages
 #set page(numbering: "1")
 
-// TODO: update font to something different
-// #set text(font: "Libertinus Serif")
+// global paragraph spacing
+#set par(
+  spacing: 1em,
+)
 
+// title page
 #align(center)[
+  #v(3cm)
+  #text(
+    size: 15pt, weight: "bold",
+  )[FPGA Development Team]
 
-  #v(2.8cm)
-  #text(size: 34pt, weight: "bold")[
-    Linux Fundamentals
-  ]
+  #v(1.2cm)
+  #text(
+    size: 25pt, weight: "bold",
+  )[Lab 1 — Linux Fundamentals for FPGA Development]
 
-  #text(size: 20pt, fill: rgb("#666666"))[
-    for FPGA Development
-  ]
-  #v(1cm)
-
-  #line(length: 55%)
-
-  #v(2.2cm)
-  #text(size: 14pt)[
-    Onboarding Tutorial
-  ]
-
-  #v(1.8cm)
-  #table(
-    columns: (1fr, 2fr),
-    stroke: none,
-    inset: 6pt,
-
-    [*Prepared by*], [Usman Siddique],
-    [*Organization*], [TeReSol Pvt. Ltd.],
-    [*Department*], [FPGA Hardware Engineering Team],
-    [*Document Version*], [1.0],
-    [*Last Updated*], [#datetime.today().display()],
-  )
+  #v(0.8cm)
+  #text(
+    size: 14pt, style: "italic",
+  )[Onboarding Lab Manual]
 
   #v(3cm)
-  // #text(size: 10pt, fill: gray)[
-  //   Confidential • Internal Engineering Documentation
-  // ]
+  #line(length: 70%)
+
+  #v(1.5cm)
+  #table(
+    columns: (30%, 70%),
+    align: (right, left),
+    inset: 8pt,
+
+    [*Author:*], [Usman Siddique],
+    [*Organization:*], [TeReSol Pvt. Ltd.],
+    [*Department:*], [Hardware Design - FPGA Engineering Team],
+    [*Document Version:*], [v1.0],
+    [*Last Updated:*], [#datetime.today().display()],
+  )
+
+  #v(1fr)
+  #text(size: 9pt, fill: gray)[FPGA Development Onboarding Series]
+
+  #v(1cm)
 ]
 
 // Table of Contents
 #pagebreak()
 #outline()
 #pagebreak()
+
+
 
 = `ls`
 Displays the contents of a directory, allowing you to see files and folders. It is one of the most
