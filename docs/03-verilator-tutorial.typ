@@ -1,64 +1,38 @@
-#set page(
-  paper: "a4",
-  margin: 1in,
-)
-
-#set text(
-  font: "Noto Sans",
-  size: 11pt,
-)
-
+#set page(paper: "a4", margin: 1in)
+#set text(font: "Noto Sans", size: 11pt)
 // number all headings
 #set heading(numbering: "1.1.")
-
 // show all links as underlined and blue
 #show link: underline
 #show link: set text(blue)
-
 // number all pages
 #set page(numbering: "1")
-
 // global paragraph spacing
-#set par(
-  spacing: 2em,
-)
+#set par(spacing: 2em,)
+
+
 
 // title page
 #align(center)[
   #v(3cm)
-  #text(
-    size: 15pt, weight: "bold",
-  )[FPGA Development Team]
-
+  #text(size: 15pt, weight: "bold")[FPGA Development Team]
   #v(1.2cm)
-  #text(
-    size: 25pt, weight: "bold",
-  )[Lab 3 — Verilog Simulation Using Verilator]
-
+  #text(size: 25pt, weight: "bold")[Lab 3 — Verilog Simulation Using Verilator]
   #v(0.8cm)
-  #text(
-    size: 14pt, style: "italic",
-  )[Onboarding Lab Manual]
-
+  #text(size: 14pt, style: "italic")[Onboarding Lab Manual]
   #v(3cm)
   #line(length: 70%)
-
   #v(1.5cm)
   #table(
-    columns: (30%, 70%),
-    align: (right, left),
-    inset: 8pt,
-
+    columns: (30%, 70%), align: (right, left), inset: 8pt,
     [*Author:*], [Usman Siddique],
     [*Organization:*], [TeReSol Pvt. Ltd.],
     [*Department:*], [Hardware Design - FPGA Engineering Team],
     [*Document Version:*], [v1.0],
     [*Last Updated:*], [#datetime.today().display()],
   )
-
   #v(1fr)
   #text(size: 9pt, fill: gray)[FPGA Development Onboarding Series]
-
   #v(1cm)
 ]
 
@@ -66,6 +40,7 @@
 #pagebreak()
 #outline()
 #pagebreak()
+
 
 
 // LAB MANUAL begins from here
@@ -114,9 +89,7 @@ design through software simulation using OSS (Free Open Source Software).
 For this lab, we need a Linux system with Fedora installed. The following software is required:
 
 #table(
-  columns: (20%, 80%),
-  stroke: 0.5pt,
-  inset: 8pt,
+  columns: (20%, 80%), stroke: 0.5pt, inset: 8pt,
 
   [*Tool*], [*Purpose*],
   [`verilator`], [Verilog compiler, linter, and simulation model generator],
