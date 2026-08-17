@@ -145,7 +145,7 @@ generated simulation files.
 
 Create the following directories:
 ```bash
-mkdir src tb sim
+mkdir src tb bin
 ```
 
 The resulting project structure will be:
@@ -153,7 +153,7 @@ The resulting project structure will be:
 verilog-lab/
 ├── src/
 ├── tb/
-└── sim/
+└── bin/
 ```
 
 We will eventually have a project structure similar to:
@@ -176,7 +176,7 @@ Test (DUT)*.
 
 The `tb/` directory contains the testbench/es used to stimulate and verify the design.
 
-The `sim/` directory contains files generated during simulation, such as the compiled simulation and
+The `bin/` directory contains files generated during simulation, such as the compiled simulation and
 waveform file/s.
 
 = Creating the Verilog Design
@@ -534,7 +534,7 @@ wave: run
 	gtkwave ./bin/tb_counter.vcd
 
 clean:
-	rm -rf sim/*.vvp sim/*.vcd
+	rm -rf bin/*.vvp bin/*.vcd
 ```
 
 Note that the commands underneath each target must begin with a *tab character*, not spaces.
@@ -550,7 +550,7 @@ make build
 
 This compiles the Verilog design and testbench. It is equivalent to:
 ```bash
-iverilog -g2012 -o sim/counter_tb.vvp src/counter.v tb/counter_tb.v
+iverilog -g2012 -o bin/counter_tb.vvp src/counter.v tb/counter_tb.v
 ```
 
 == Run
@@ -599,7 +599,7 @@ lab-02-verilog-sim-iverilog/
 │   └── counter.v
 ├── tb/
 │   └── tb_counter.v
-├── sim/
+├── bin/
 │   ├── tb_counter.vvp
 │   └── tb_counter.vcd
 └── Makefile
