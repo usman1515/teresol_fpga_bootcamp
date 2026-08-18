@@ -422,7 +422,7 @@ opt
 write_verilog ./bin/netlist_ripple_carry_adder.sv
 stat -tech cmos -width
 
-show -format svg -stretch -width -colors 10000 -signed \
+show -format dot -stretch -width -colors 10000 -signed \
     -prefix ./bin/rtl_elab_ripple_carry_adder
 ```
 
