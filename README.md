@@ -38,7 +38,8 @@ and convenient support for technical documentation.
 ### Installing Typst on Fedora
 Install Typst using Fedora's package manager:
 ```bash
-sudo dnf install typst
+sudo dnf copr enable claaj/typst
+sudo dnf install -y typst
 
 # verify the installation:
 typst --version
@@ -49,6 +50,61 @@ Simply run the command `make compile_docs` to generate PDFs for all the lab manu
 
 ## FPGA Development Environment
 The FPGA development environment uses Vivado along with several open-source tools.
+
+## [Vivado]()
+
+### Install Cable Drivers (Linux Only)
+Once vivado is installed you need to setup the cable drivers and board definitions.
+```bash
+# got to directory
+cd /tools/Xilinx/2025.1/Vivado/data/xicom/cable_drivers/lin64/install_script/install_drivers/
+
+# run script
+sudo ./install_drivers
+```
+
+### [Install Digilent's Board Files]()
+Once you have installed the cable drivers we need to setup the board definitions.
+```bash
+mkdir -p ~/Tools/
+cd ~/Tools/
+
+# clone the repo
+git clone https://github.com/Digilent/vivado-boards.git
+cd vivado-boards
+
+# copy board files
+sudo cp -rv ~/Tools/vivado-boards/new/board_files /tools/Xilinx/2025.1/Vivado/data/boards/
+```
+
+## [Verible](https://github.com/chipsalliance/verible)
+Verible is a suite of SystemVerilog developer tools, including a parser, style-linter, formatter and
+language server. To start download the latest `*-linux-static-x86_64.tart.gz` file this
+[link](https://github.com/chipsalliance/verible/releases)
+```bash
+# after downloading the tar file
+mkdir -p ~/Tools
+cd ~/Tools
+
+tar -zxvf ~/Downloads/verible-v0.0-4148-g1ea007ec-linux-static-x86_64.tar.gz \
+        -C ~/Tools/verible-v0.0-4148-g1ea007ec-linux-static-x86_64
+```
+
+Add the following `$PATH` in your `~/.bashrc`
+```bash
+# PATH oss-cad-suite
+export PATH="$HOME/Tools/verible-v0.0-4148-g1ea007ec/bin:$PATH"
+
+# restart the shell or run:
+source ~/.bashrc
+
+# verify the installation:
+verible-verilog-diff --version
+verible-verilog-format --version
+verible-verilog-lint --version
+verible-verilog-ls --version
+verible-verilog-syntax --version
+```
 
 ## [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build)
 The OSS CAD Suite is a collection of open-source tools for digital design and FPGA development.
